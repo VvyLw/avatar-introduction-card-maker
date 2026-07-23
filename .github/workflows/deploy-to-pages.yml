@@ -14,17 +14,11 @@ jobs:
       - name: Checkout masterthesis repo
         uses: actions/checkout@v4
 
-      - name: Deploy html
-        run: |
-          mkdir -p avatar-introduction-card-maker
-          cp -r src/* avatar-introduction-card-maker/
-          mv avatar-introduction-card-maker/avatar_card_maker.html avatar-introduction-card-maker/index.html
-
       - name: Push to vvylw.github.io
         uses: peaceiris/actions-gh-pages@v4
         with:
           external_repository: vvylw/vvylw.github.io
           publish_branch: master
-          publish_dir: ./avatar-introduction-card-maker
+          publish_dir: ./src
           destination_dir: avatar-introduction-card-maker
           personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
