@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - "master/src"
+      - "src/**"
 
 jobs:
   deploy:
@@ -14,16 +14,16 @@ jobs:
       - name: Checkout masterthesis repo
         uses: actions/checkout@v4
 
-      - name: Prepare PDF file
+      - name: Deploy html
         run: |
-          mkdir -p exported
-          cp master/src/* exported/
+          mkdir -p avatar_card_maker
+          cp -r src/* avatar_card_maker/
 
       - name: Push to vvylw.github.io
         uses: peaceiris/actions-gh-pages@v4
         with:
           external_repository: vvylw/vvylw.github.io
           publish_branch: master
-          publish_dir: ./exported
-          destination_dir: note
+          publish_dir: ./avatar_card_maker
+          destination_dir: avatar_card_maker
           personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
