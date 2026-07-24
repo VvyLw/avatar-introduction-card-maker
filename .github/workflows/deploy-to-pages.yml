@@ -20,5 +20,5 @@ jobs:
           external_repository: vvylw/vvylw.github.io
           publish_branch: master
           publish_dir: ./src
-          destination_dir: avatar-introduction-card-maker
+          destination_dir: avatar-card-maker
           personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
